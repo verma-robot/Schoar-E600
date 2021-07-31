@@ -1,0 +1,187 @@
+TrajectoryPlannerROS:
+   max_vel_x: 0.6 # x方向最大线速度
+   min_vel_x: 0.0 #最小线速度
+   max_vel_y: 0.0  # zero for a differential drive robot
+   min_vel_y: 0.0
+
+#   max_vel_trans: 0.6 #最大线速度
+#   min_vel_trans: 0.0 #最小线速度
+
+   max_vel_theta: 3.0 #最大角速度
+   min_vel_theta: 0.0 #最小角速度
+   min_in_place_vel_theta: 0.5 #机器人最小原地旋转速度
+   escape_vel: -0.1 #机器人逃离速度
+
+   acc_lim_x: 1.0 #最大线加速度
+   acc_lim_y: 0.0 # zero for a differential drive robot
+   acc_lim_theta: 2.5 #最大角加速度
+
+   holonomic_robot: false
+   yaw_goal_tolerance: 0.05 # 路径规划到达点与目标点的角度允许偏差
+   xy_goal_tolerance: 0.1  # 路径规划到达点与目标点的距离偏差
+   latch_xy_goal_tolerance: false
+   path_distance_bias: 0.55 #默认32；值变大，机器人倾向全局路径规划
+   goal_distance_bias: 0.75 #机器人运行轨迹靠近局部规划路径的权重；值越大，机器人倾向局部路径规划
+   occdist_scale: 1.0 #避开障碍物的权重，要远离障碍物及时避障，需要提高这个参数，0～254，默认0.01；但是该值过大会导致机器人陷入困境
+   meter_scoring: true #采用米作为打分单位
+
+#   forward_point_distance: 0.325 # 将机器人与目标点连线并延长forward_point_distance距离作为一个评分点
+   stop_time_buffer: 0.5 #机器人在碰到障碍物之前必须停止的时间
+   prune_plan: true #一旦机器人从规划的路径上走过1m，这些点就会从轨迹中删除。
+
+   sim_time: 2.0 #前向仿真时间 ，仿真距离=sim_time * vel
+   sim_granularity: 0.025 #轨迹的碰撞检测距离
+   angular_sim_granularity: 0.025 #给点轨迹上点之间的弧长
+   vx_samples: 6 # x轴方向速度采样数量
+   vy_samples: 0 # y轴方向速度采样数量
+   vtheta_samples: 20 #角速度采样数量
+   controller_frequency: 20.0
+   heading_lookahead: 0.325
+   heading_scoring: false #通过航向计算
+   heading_scoring_timestep: 0.8
+
+   publish_cost_grid_pc: true 
+
+   dwa: false
+   oscillation_reset_dist: 0.05 #震荡标志恢复之前机器人需要移动的距离
+   simple_attractor: false
+
+
+DWAPlannerROS:
+  # Robot configuration parameters  
+  acc_lim_x: 1.0 # x方向的最大线加速度
+  acc_lim_y: 0
+  acc_lim_theta: 2.5 #最大角加速度
+
+  acc_lin_trans: 1.0 #最大线加速度
+
+  max_vel_x: 0.6 #最大线速度
+  min_vel_x: 0.0 #最小线速度
+  max_vel_y: 0
+  min_vel_y: 0
+
+  max_vel_trans: 0.6 #最大线速度
+  min_vel_trans: 0.0 #最小线速度
+
+  max_vel_theta: 3.0
+  min_vel_theta: 0.2
+
+  trans_stopped_vel: 0.05 #速度低于多少被认为是停止
+  theta_stopped_vel: 0.1
+#  min_in_place_vel_theta: 0.5 #机器人最小原地旋转速度
+  holonomic_robot: false
+
+  yaw_goal_tolerance: 0.05
+  xy_goal_tolerance: 0.1
+  latch_xy_goal_tolerance: false
+  prune_plan: true
+  meter_scoring: true #采用米作为打分单位
+#  sim_time: 2.0 #前向仿真时间 ，仿真距离=sim_time * vel
+#  sim_granularity: 0.025 #轨迹上点与点的间隔尺寸
+#  angular_sim_granularity: 0.025 #轨迹上点与点的间隔弧长
+
+  path_distance_bias: 0.55 # The weighting for how much the controller should stay close to the path it was given
+  goal_distance_bias: 0.75 # The weighting for how much the controller should attempt to reach its local goal, also controls speed
+  occdist_scale: 1.0 #避开障碍物的权重，要远离障碍物及时避障，需要提高这个参数，0～254，默认0.01；但是该值过大会导致机器人陷入困境
+  oscillation_reset_dist: 0.05 #震荡标志恢复之前机器人需要移动的距离
+  oscillation_reset_angle: 0.2 #震荡标志恢复之前机器人需要旋转的角度
+
+#  vx_samples: 6 # x轴方向速度采样数量
+#  vy_samples: 0 # y轴方向速度采样数量
+#  vtheta_samples: 20 #角速度采样数量
+
+#  controller_frequency: 20.0
+#  forward_point_distance: 0.325
+#  stop_time_buffer: 0.2
+
+  use_dwa: true
+
+
+TebLocalPlannerROS:
+
+#  map_frame: map
+
+ # Trajectory
+
+#  teb_autosize: True
+#  dt_ref: 0.3
+#  dt_hysteresis: 0.1
+#  min_samples: 5
+
+#  global_plan_overwrite_orientation: true
+
+#  max_global_plan_lookahead_dist: 3.0
+#  feasibility_check_no_poses: 4
+#  force_reinit_new_goal_dist: 1.0
+#  publish_feedback: false
+  allow_init_with_backwards_motion: true
+#  exact_arc_length: true
+ # Robot
+  acc_lim_x: 1.0 #最大线加速度
+  acc_lim_y: 0
+  acc_lim_theta: 3.0 #最大角加速度 
+  max_vel_x: 0.6 #最大线速度
+  max_vel_x_backwards: 0.15 
+  max_vel_theta: 1.0
+  is_footprint_dynamic: false
+ 
+  min_turning_radius: 0.0 
+  footprint_model/type: "circular"
+  footprint_model/radius: 0.40 # for type "circular"
+
+ # GoalTolerance
+
+  xy_goal_tolerance: 0.1
+  yaw_goal_tolerance: 0.2
+  free_goal_vel: false #是否消除速度限制
+
+ # Obstacles
+
+  min_obstacle_dist: 0.2
+  include_costmap_obstacles: true
+  inflation_dist: 0.6
+  costmap_converter_rate: 2.0
+  costmap_obstacles_behind_robot_dist: 1.0
+#  inflation_dist: 0.6
+#  dynamic_obstacle_inflation_dist: 0.25
+#  exact_arc_length: True
+#  costmap_obstacles_behind_robot_dist: 1.0
+#  obstacle_poses_affected: 30
+#  costmap_converter_plugin: ""
+#  costmap_converter_spin_thread: True
+#  costmap_converter_rate: 5.0
+
+ # Optimization
+
+#  no_inner_iterations: 5
+#  no_outer_iterations: 4
+#  optimization_activate: True
+#  optimization_verbose: False
+#  penalty_epsilon: 0.1
+#  weight_max_vel_x: 100
+#  weight_max_vel_theta: 100
+#  weight_acc_lim_x: 1
+#  weight_acc_lim_theta: 1
+#  weight_kinematics_nh: 1000
+#  weight_kinematics_forward_drive: 1
+#  weight_kinematics_turning_radius: 1
+#  weight_optimaltime: 1
+#  weight_obstacle: 300   #50
+#  weight_dynamic_obstacle: 10 # not in use yet
+#  alternative_time_cost: False # not in use yet
+
+ # Homotopy Class Planner
+
+#  enable_homotopy_class_planning: False
+#  enable_multithreading: True
+#  simple_exploration: False
+#  max_number_classes: 4
+#  roadmap_graph_no_samples: 15
+#  roadmap_graph_area_width: 5
+#  h_signature_prescaler: 0.5
+#  h_signature_threshold: 0.1
+#  obstacle_keypoint_offset: 0.1
+#  obstacle_heading_threshold: 0.45
+#  visualize_hc_graph: False
+
+

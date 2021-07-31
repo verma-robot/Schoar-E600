@@ -1,0 +1,18 @@
+<launch>
+<!--bringup the imu -->
+<include file="$(find scholar_imu)/launch/bringup.launch"/>
+
+<!--bringup the scholar robot-->
+<include file="$(find scholar_bringup)/launch/bringup.launch"/>
+
+<!--bringup the lidar-->
+<include file="$(find ydlidar)/launch/lidar.launch"/>
+
+<include file="$(find robot_pose_ekf)/launch/robot_pose_ekf.launch"/>
+
+<node pkg="robot_localization" type="ekf_localization_node" name="ekf_localization">
+      <rosparam command="load" file="$(find scholar_navigation)/config/localization.yaml" />
+</node>
+
+</launch>
+

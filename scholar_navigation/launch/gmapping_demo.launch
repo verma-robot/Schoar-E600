@@ -1,0 +1,9 @@
+
+
+<launch>
+
+  <include file="$(find scholar_navigation)/launch/move_base.launch" />
+
+  <include file="$(find scholar_navigation)/launch/gmapping.launch" />
+
+</launch>
