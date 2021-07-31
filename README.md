@@ -29,7 +29,7 @@
   sudo cp scholar_bringup/udev/scholar_600.rules /etc/udev/rules.d/
   
   ```
-#修改Scholar E600 内置IMU的串口权限
+# 修改Scholar E600 内置IMU的串口权限
   copy the udev rule file `imu.rules` from `~/catkin_ws/src/scholar-ros/scholar_imu/udev` to `/etc/udev/rules.d/`:
 
   ```
@@ -43,35 +43,35 @@
 
 ## 启动机器人
 
-#启动Scholar E600
+# 启动Scholar E600
 
   ```
   roslaunch scholar_bringup bringup.launch 
 
   ```
-#启动Scholar E600内置IMU
+# 启动Scholar E600内置IMU
 
   ```
   roslaunch scholar_imu bringup.launch 
 
   ```
-##键盘控制机器人
+## 键盘控制机器人
 
   ```
   roslaunch scholar_joy_teleop scholar_teleop.launch 
 
   ```
 
-##校准机器人线速度、角速度
+## 校准机器人线速度、角速度
 
-#校准线速度：
+# 校准线速度：
 
   ```
   rosrun scholar_calibrate calibrate_linear.py 
 
   ```
 
-#校准角速度：
+# 校准角速度：
 
   ```
   rosrun scholar_calibrate angular_calibrate.py 
@@ -80,7 +80,7 @@
 
 ###  without real robot(Gazebo)
 
-##启动机器人（Gazebo）
+## 启动机器人（Gazebo）
 
   ```
   roslaunch scholar_gazebo scholar_gazebo.launch
@@ -97,7 +97,7 @@
 
 #### SLAM
 
-###启动机器人、内置IMU、激光雷达传感器
+### 启动机器人、内置IMU、激光雷达传感器
 
 ##  with real robot
   
@@ -113,7 +113,7 @@
 
   ```
 
-###建图
+### 建图
 
   ```
   roslaunch scholar_navigation gmapping.launch
@@ -126,13 +126,13 @@
   rosrun map_server map_saver
 
   ```
-###自动导航
+### 自动导航
 
   ```
   roslaunch scholar_navigation move_base_demo.launch
 
   ```
-###rviz可视化
+### rviz可视化
 
   ```
   roslaunch scholar_rviz view_slam.launch
