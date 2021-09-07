@@ -15,7 +15,7 @@
 
   ```
   cd ~/catkin_ws/src
-  git clone https://github.com/verma-robot/RosHand.git scholar-ros
+  git clone https://github.com/verma-robot/Schoar-E600.git scholar-ros
   cd ~/catkin_ws
   catkin_make
 
