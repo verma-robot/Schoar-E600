@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<robot name="slam_top_plate" xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:include filename="$(find scholar_slam_description)/urdf/top_plate.xacro" />
+  <xacro:include filename="$(find scholar_base_description)/urdf/scholar_base_description.xacro" />
+
+  <top_plate link_name="slam_top_plate">
+
+  </top_plate>
+
+
+  <joint
+    name="scholoar_base_top_plate"
+    type="fixed">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="top_plate_link" />
+    <child
+      link="slam_top_plate" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+</robot>
