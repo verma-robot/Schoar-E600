@@ -1,4 +1,0 @@
-<launch>
-	<node	pkg="scholar_joy_teleop" 	type="scholar_joy_teleop.py" 	name="scholar_joy_teleop" 	output="screen" >
-	</node>
-</launch>                                                                                         
