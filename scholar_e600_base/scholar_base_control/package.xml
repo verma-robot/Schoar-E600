@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>scholar_base_control</name>
+  <version>0.0.0</version>
+  <description>The scholar_control package</description>
+
+  <maintainer email="support@verma-robot.com">scholar</maintainer>
+
+  <license>TODO</license>
+  <buildtool_depend>catkin</buildtool_depend>
+  <exec_depend>controller_manager</exec_depend>
+  <exec_depend>diff_drive_controller</exec_depend>
+  <exec_depend>joint_state_controller</exec_depend>
+  <exec_depend>joint_trajectoty_controller</exec_depend>
+  <exec_depend>multimaster_launch</exec_depend>
+  <exec_depend>robot_localization</exec_depend>
+  <exec_depend>scholar_base_description</exec_depend>
+
+  <export>
+
+
+  </export>
+</package>
