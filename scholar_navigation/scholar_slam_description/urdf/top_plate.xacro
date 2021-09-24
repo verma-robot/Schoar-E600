@@ -52,9 +52,7 @@
       </geometry>
     </collision>
   </link>
-  <!--link
-    name="front_laser_base_link">    
-  </link-->
+
   <joint
     name="front_laser_base_joint"
     type="fixed">
@@ -68,9 +66,7 @@
     <axis
       xyz="0 0 0" />
   </joint>
-  <!--link
-    name="rear_laser_base_link">   
-  </link-->
+ 
   <joint
     name="rear_laser_base_joint"
     type="fixed">
@@ -87,21 +83,20 @@
   <link
     name="camera_base_link">   
   </link>
+
   <joint
     name="camera_base_joint"
     type="fixed">
     <origin
-      xyz="0.27747 0.00013521 0.097"
+      xyz="0.26146 -0.0016291 0.216"
       rpy="0 0 0" />
     <parent
       link="${link_name}" />
     <child
       link="camera_base_link" />
     <axis
-      xyz="0 0 1" />
+      xyz="0 0 0" />
   </joint>
-
-
    <gazebo reference="camera_base_link">
            <sensor type="depth" name="camera">
                 <always_on>true</always_on>
